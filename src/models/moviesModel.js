@@ -1,38 +1,40 @@
 import prisma from "../utils/prismaClient.js";
 
 export const create = async (data) => {
-    const camposObrigatorios = [
-        "title",
-        "description",
-        "genre",
-        "runtime",
-        "rating",
-    ];
-    
-    const camposFaltantes = camposObrigatorios.filter(c => !data[c]);
-    
-    if (camposFaltantes.length > 0) {
-        const erro = new Error('Os seguintes campos são obrigatórios: ' + camposFaltantes.join(", "))
-        erro.status = 400;
-        erro.success = false;
-        throw erro;
-    }
+  const camposObrigatorios = [
+    "title",
+    "description",
+    "genre",
+    "runtime",
+    "rating",
+  ];
 
-    const genrePermitidos = [
-      "Ação",
-      "Ficção Científica",
-      "Drama",
-      "Crime",
-      "Terror",
-      "Animação",
-      "Comédia",
-      "Suspense",
-      "Romance",
-    ];
-    
-    const title = data.title?.trim();
-    const description = data.description?.trim();
-    const genre = data.genre?.trim();
+  const camposFaltantes = camposObrigatorios.filter((c) => !data[c]);
+
+  if (camposFaltantes.length > 0) {
+    const erro = new Error(
+      "Os seguintes campos são obrigatórios: " + camposFaltantes.join(", "),
+    );
+    erro.status = 400;
+    erro.success = false;
+    throw erro;
+  }
+
+  const genrePermitidos = [
+    "Ação",
+    "Ficção Científica",
+    "Drama",
+    "Crime",
+    "Terror",
+    "Animação",
+    "Comédia",
+    "Suspense",
+    "Romance",
+  ];
+
+  const title = data.title?.trim();
+  const description = data.description?.trim();
+  const genre = data.genre?.trim();
 
   if (!title || title.length < 3) {
     const erro = new Error(
@@ -76,7 +78,7 @@ export const create = async (data) => {
 
   if (data.runtime > 300) {
     const erro = new Error(
-      "A duração do filme não pode ser maior que 300 minutos",
+      "A duração (runtime) do filme não pode ser maior que 300 minutos",
     );
     erro.status = 400;
     erro.success = false;
@@ -95,7 +97,10 @@ export const create = async (data) => {
   }
 
   if (data.rating > 10 || data.rating < 0) {
-    throw new Error("A avaliação do filme deve estar entre 0 e 10");
+    const erro = new Error("A avaliação do filme deve estar entre 0 e 10");
+    erro.status = 400;
+    erro.success = false;
+    throw erro;
   }
 
   return await prisma.movie.create({
@@ -103,7 +108,9 @@ export const create = async (data) => {
       ...data,
       title,
       description,
+      runtime,
       genre: genreValido,
+      rating,
       available: true,
     },
   });

@@ -3,7 +3,7 @@ import * as controller from '../controllers/mvoiesController.js';
 
 const router = express.Router();
 
-router.post('/mvoie', controller.create);
+router.post('/movie', controller.create);
 router.get('/movies', controller.getAll);
 router.get('/movie/:id', controller.getById);
 router.put('/movie/:id', controller.update);

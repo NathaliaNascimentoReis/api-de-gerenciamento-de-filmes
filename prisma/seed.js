@@ -18,9 +18,9 @@ async function main() {
         description:
           "A história do físico J. Robert Oppenheimer e o desenvolvimento da bomba atômica.",
         runtime: 180,
-        genre: "Biografia/Drama",
+        genre: "Drama",
         rating: 8.4,
-        available: true,
+        available: true
       },
       {
         title: "Duna: Parte 2",
@@ -29,7 +29,7 @@ async function main() {
         runtime: 166,
         genre: "Ficção Científica",
         rating: 8.6,
-        available: true,
+        available: true
       },
       {
         title: "Pulp Fiction",
@@ -38,7 +38,7 @@ async function main() {
         runtime: 154,
         genre: "Crime",
         rating: 8.9,
-        available: true,
+        available: false
       },
       {
         title: "O Iluminado",
@@ -47,7 +47,7 @@ async function main() {
         runtime: 146,
         genre: "Terror",
         rating: 8.4,
-        available: false,
+        available: false
       },
       {
         title: "A Viagem de Chihiro",
@@ -56,7 +56,7 @@ async function main() {
         runtime: 125,
         genre: "Animação",
         rating: 8.6,
-        available: true,
+        available: true
       },
       {
         title: "Batman: O Cavaleiro das Trevas",
@@ -64,7 +64,7 @@ async function main() {
         runtime: 152,
         genre: "Ação",
         rating: 9.0,
-        available: true,
+        available: true
       },
       {
         title: "Parasita",
@@ -73,7 +73,7 @@ async function main() {
         runtime: 132,
         genre: "Suspense",
         rating: 8.5,
-        available: true,
+        available: true
       },
       {
         title: "Interestelar",
@@ -82,7 +82,7 @@ async function main() {
         runtime: 169,
         genre: "Ficção Científica",
         rating: 8.7,
-        available: true,
+        available: true
       },
       {
         title: "O Grande Hotel Budapeste",
@@ -91,16 +91,16 @@ async function main() {
         runtime: 99,
         genre: "Comédia",
         rating: 8.1,
-        available: true,
+        available: true
       },
       {
         title: "Mad Max: Estrada da Fúria",
         description:
           "Em um futuro pós-apocalíptico, uma mulher se rebela contra um governante tirano.",
         runtime: 120,
-        genre: "Ação/Sci-Fi",
+        genre: "Ação",
         rating: 8.1,
-        available: true,
+        available: false
       },
     ],
   });
